@@ -1,5 +1,3 @@
-package org.example.test;
-
 public class MathUtil {
 
     public int plus(int a, int b) {
