@@ -1,4 +1,4 @@
-package org.Task1;
+package by.onliner;
 
 
 import org.openqa.selenium.WebElement;
