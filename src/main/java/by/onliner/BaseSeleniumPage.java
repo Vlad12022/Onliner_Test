@@ -1,13 +1,12 @@
-package org.Task1;
+package by.onliner;
 
 import org.openqa.selenium.WebDriver;
 
-abstract public class BaseSeleniumPage {
+public abstract class BaseSeleniumPage {
 
     protected static WebDriver driver;
 
     public static void setDriver(WebDriver webDriver) {
-
         driver = webDriver;
     }
 

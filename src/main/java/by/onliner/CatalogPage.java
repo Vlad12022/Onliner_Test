@@ -1,4 +1,4 @@
-package org.Task1;
+package by.onliner;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -9,7 +9,9 @@ import java.util.*;
 
 
 public class CatalogPage extends BaseSeleniumPage {
+
     public static final String ID_CONTAINER_DIV_DIV_DIV_DIV_DIV_1_DIV_4_DIV_DIV_DIV_DIV_DIV = "//*[@id='container']/div/div/div/div/div[1]/div[4]/div/div/div/div/div";
+
     @FindBy(xpath = "//*[@id='container']/div/div/div/div/div[1]/ul/li")
     private List<WebElement> categories;
 
@@ -19,12 +21,10 @@ public class CatalogPage extends BaseSeleniumPage {
 
     public Map<String, Set<String>> checkWidget(String categoryName, String categoryXPath) {
 
-
         Map<String, Set<String>> widgetTexts = new HashMap<>();
         WebElement category = driver.findElement(By.xpath(categoryXPath));
         String categoryText = category.getText();
         Set<String> subCategoriesTexts = new LinkedHashSet<>();
-
 
         category.click();
         List<WebElement> subCategories = category.findElements(By.xpath(ID_CONTAINER_DIV_DIV_DIV_DIV_DIV_1_DIV_4_DIV_DIV_DIV_DIV_DIV));
@@ -41,9 +41,7 @@ public class CatalogPage extends BaseSeleniumPage {
             }
         }
 
-
         widgetTexts.put(categoryText, subCategoriesTexts);
-
         return widgetTexts;
     }
 }
