@@ -17,14 +17,17 @@ public class MainTest extends Base {
         CatalogPage catalogPage = mainPage.openCatalog();
 
         //When
-        Map<String, Set<String>> widgetTexts = catalogPage.checkWidget( categoryName,categoryXPath);
+        Map<String, List<String>> widgetTexts = catalogPage.checkWidget( categoryName,categoryXPath);
 
         //Then
         widgetTexts.forEach((category, subCategories) -> {
             System.out.println("Category: " + category);
             subCategories.forEach(subCategory -> System.out.println(" - " + subCategory));
-        });
 
+            Set<String> uniqueSubCategories = new LinkedHashSet<>(subCategories);
+            Assert.assertEquals(uniqueSubCategories.size(),subCategories.size(),"В списке есть дубликаты");
+
+    });
     }
 }
 

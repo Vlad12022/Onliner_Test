@@ -4,31 +4,33 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import static org.Task1.XpathConstants.SUBCATEGORIES_XPATH;
+
+import java.time.Duration;
 import java.util.*;
 
 
 public class CatalogPage extends BaseSeleniumPage {
-    public static final String ID_CONTAINER_DIV_DIV_DIV_DIV_DIV_1_DIV_4_DIV_DIV_DIV_DIV_DIV = "//*[@id='container']/div/div/div/div/div[1]/div[4]/div/div/div/div/div";
-    @FindBy(xpath = "//*[@id='container']/div/div/div/div/div[1]/ul/li")
+
+    @FindBy(xpath = "//li[contains(@class,'catalog')]")
     private List<WebElement> categories;
 
     public CatalogPage() {
         PageFactory.initElements(driver, this);
     }
 
-    public Map<String, Set<String>> checkWidget(String categoryName, String categoryXPath) {
+    public Map<String, List<String>> checkWidget(String categoryName, String categoryXPath) {
 
-
-        Map<String, Set<String>> widgetTexts = new HashMap<>();
+        Map<String, List<String>> widgetTexts = new HashMap<>();
         WebElement category = driver.findElement(By.xpath(categoryXPath));
         String categoryText = category.getText();
-        Set<String> subCategoriesTexts = new LinkedHashSet<>();
-
-
         category.click();
-        List<WebElement> subCategories = category.findElements(By.xpath(ID_CONTAINER_DIV_DIV_DIV_DIV_DIV_1_DIV_4_DIV_DIV_DIV_DIV_DIV));
 
+        List<WebElement> subCategories = category.findElements(By.xpath(SUBCATEGORIES_XPATH));
+        List<String> subCategoriesTexts = new ArrayList<>();
         for (WebElement subCategory : subCategories) {
             try {
                 subCategory.click();
@@ -40,13 +42,11 @@ public class CatalogPage extends BaseSeleniumPage {
                 System.out.println("Произошла ошибка: " + e.getMessage());
             }
         }
-
-
         widgetTexts.put(categoryText, subCategoriesTexts);
-
         return widgetTexts;
     }
 }
+
 
 
 
