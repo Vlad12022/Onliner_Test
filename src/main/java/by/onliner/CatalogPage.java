@@ -1,4 +1,4 @@
-package org.Task1;
+package by.onliner;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -14,6 +14,7 @@ import java.util.*;
 
 
 public class CatalogPage extends BaseSeleniumPage {
+
 
     @FindBy(xpath = "//li[contains(@class,'catalog')]")
     private List<WebElement> categories;

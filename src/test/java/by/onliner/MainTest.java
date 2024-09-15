@@ -1,14 +1,11 @@
-package org.Task1Test;
+package by.onliner;
 
-import org.Task1.CatalogPage;
-import org.Task1.MainPage;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.util.*;
 
 
-public class MainTest extends Base {
+public class MainTest extends BaseTest {
 
     @Test(dataProvider = "categoryProvider", dataProviderClass = TestDataProvider.class)
     public void testCheckWidget(String categoryName , String categoryXPath) {

@@ -1,8 +1,9 @@
-package org.Task1Test;
+package by.onliner;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.Task1.BaseSeleniumPage;
+import by.onliner.BaseSeleniumPage;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -10,7 +11,7 @@ import org.testng.annotations.BeforeMethod;
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
-public class Base {
+public class BaseTest {
 
     protected WebDriver driver;
 
@@ -29,6 +30,4 @@ public class Base {
         driver.close();
         driver.quit();
     }
-
-
 }
