@@ -1,14 +1,12 @@
-package by.onliner;
+package tests;
 
+import pages.BaseSeleniumPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import by.onliner.BaseSeleniumPage;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.*;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
-import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 public class BaseTest {
@@ -23,6 +21,8 @@ public class BaseTest {
         driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         BaseSeleniumPage.setDriver(driver);
+
+
     }
 
     @AfterMethod

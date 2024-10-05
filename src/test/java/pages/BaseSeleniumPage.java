@@ -1,14 +1,11 @@
-package by.onliner;
+package pages;
 
+import lombok.Setter;
 import org.openqa.selenium.WebDriver;
 
 public abstract class BaseSeleniumPage {
-
+    @Setter
     protected static WebDriver driver;
-
-    public static void setDriver(WebDriver webDriver) {
-        driver = webDriver;
-    }
 
 
 }
